@@ -8,6 +8,10 @@ import { RainbowButton } from "./rainbow-button";
 import Link from "next/link";
 import { useBot } from '@/support/BotContext';
 
+import {
+  DialogClose,
+} from "@/components/ui/dialog"
+
 export const AnimatedTestimonials = ({
   testimonials,
   autoplay = false
@@ -43,10 +47,10 @@ export const AnimatedTestimonials = ({
   };
   return (
     (<div suppressHydrationWarning
-      className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20">
-      <div className="relative grid grid-cols-1 md:grid-cols-2  gap-20">
+      className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 md:py-20">
+      <div className="relative grid grid-cols-1 md:grid-cols-2  md:gap-20">
         <div>
-          <div className="relative h-80 w-full">
+          <div className="relative h-40 md:h-80 w-full">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -84,7 +88,7 @@ export const AnimatedTestimonials = ({
                     width={500}
                     height={500}
                     draggable={false}
-                    className="h-full w-full rounded-3xl object-cover object-center" />
+                    className="md:h-full md:w-full h-40 w-40 rounded-3xl object-cover object-center m-auto" />
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -109,13 +113,13 @@ export const AnimatedTestimonials = ({
               duration: 0.2,
               ease: "easeInOut",
             }}>
-            <h3 className="text-2xl font-bold dark:text-white text-black">
+            <h3 className="text-2xl font-bold dark:text-white text-black text-center md:text-left">
               {testimonials[active].name}
             </h3>
-            <p className="text-sm text-gray-500 dark:text-neutral-500">
+            <p className="text-sm text-gray-500 dark:text-neutral-500  text-center md:text-left">
               {testimonials[active].designation}
             </p>
-            <motion.p className="text-lg text-gray-500 mt-8 dark:text-neutral-300">
+            <motion.p className=" text-gray-500 mt-8 dark:text-neutral-300 text-xs md:text-lg hidden md:block">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -140,10 +144,12 @@ export const AnimatedTestimonials = ({
               ))}
             </motion.p>
           </motion.div>
-          <Link href="/chat" onClick={handleBotSelect} className="">
+          <DialogClose asChild>
+          <Link href="/chat" onClick={handleBotSelect} className="mt-5 mx-auto md:mx-0">
           <RainbowButton>Select the Bot</RainbowButton>
           </Link>
-          <div className="flex gap-4 pt-12 md:pt-0">
+          </DialogClose>
+          <div className="flex gap-4  pt-3 md:pt-0 mx-auto md:mx-0">
             <button
               onClick={handlePrev}
               className="h-7 w-7 rounded-full bg-gray-100  flex items-center justify-center group/button">
@@ -157,7 +163,6 @@ export const AnimatedTestimonials = ({
                 className="h-5 w-5 text-black  group-hover/button:-rotate-12 transition-transform duration-300" />
             </button>
           </div>
-         
         </div>
       </div>
     </div>)
