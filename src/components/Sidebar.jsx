@@ -10,7 +10,6 @@ import { RainbowButton } from "./ui/rainbow-button";
 import { Input } from "./ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useBot } from '@/support/BotContext';
-import { IconBook, IconPlaneArrival } from "@tabler/icons-react";
 
 
 import delhi_mentor_male from "@/photos/delhi_mentor_male.jpeg";
@@ -127,21 +126,27 @@ export function SidebarDemo() {
           <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden justify-between">
             <div>
               <Logo />
-              <div className="">
-                <Image
-                  src={selectedBotDetails.src}
-                  alt="Bot"
-                  width={700}
-                  height={700}
-                  draggable={false}
-                  className="h-full w-24 rounded-3xl object-cover object-center mt-3" />
+              <div className="flex flex-row ">
+                <div className="">
+                  <Image
+                    src={selectedBotDetails.src}
+                    alt="Bot"
+                    width={100}
+                    height={100}
+                    draggable={false}
+                    className="h-20 w-20 rounded-full object-cover object-center mt-3" />
+                </div>
+                <div className="ml-3 flex justify-center items-center">
+                  <div>
+                    <h3 className="text-2xl font-bold dark:text-white text-black mt-4">
+                      {selectedBotDetails.name}
+                    </h3>
+                    <p className="text-xs text-gray-500 dark:text-neutral-400 ">
+                      {selectedBotDetails.designation}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold dark:text-white text-black mt-4">
-                {selectedBotDetails.name}
-              </h3>
-              <p className="text-sm text-gray-500 dark:text-neutral-400 ">
-                {selectedBotDetails.designation}
-              </p>
               <p className="text-sm text-gray-500 mt-2 dark:text-neutral-300">
                 {selectedBotDetails.quote}
               </p>
@@ -150,21 +155,7 @@ export function SidebarDemo() {
                 <p className="text-xs text-neutral-200 mb-2">Multiple traits can be selected</p>
                 <div className="flex flex-wrap gap-2">
                   {
-                  traits.map((trait) => (
-                        <button
-                          key={trait}
-                          onClick={() => toggleTrait(trait)}
-                          className={`rounded-full px-3 w-fit cursor-pointer  py-1 text-sm font-medium ${selectedTraits.includes(trait)
-                            ? 'bg-gradient-to-r from-violet-900 to-purple-700'
-                            : ' text-white border-purple-300 bg-neutral-700 '
-                            }`}
-                        >
-                          {trait}
-                        </button>
-                  ))}
-                  {
-                    selectedBotId.includes('romantic') ?
-                    romantic_traits.map((trait) => (
+                    traits.map((trait) => (
                       <button
                         key={trait}
                         onClick={() => toggleTrait(trait)}
@@ -175,9 +166,23 @@ export function SidebarDemo() {
                       >
                         {trait}
                       </button>
-                ))
-                    
-                    : <></>
+                    ))}
+                  {
+                    selectedBotId.includes('romantic') ?
+                      romantic_traits.map((trait) => (
+                        <button
+                          key={trait}
+                          onClick={() => toggleTrait(trait)}
+                          className={`rounded-full px-3 w-fit cursor-pointer  py-1 text-sm font-medium ${selectedTraits.includes(trait)
+                            ? 'bg-gradient-to-r from-violet-900 to-purple-700'
+                            : ' text-white border-purple-300 bg-neutral-700 '
+                            }`}
+                        >
+                          {trait}
+                        </button>
+                      ))
+
+                      : <></>
                   }
                 </div>
               </div>

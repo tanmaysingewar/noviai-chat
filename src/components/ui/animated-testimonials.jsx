@@ -10,6 +10,7 @@ import { useBot } from '@/support/BotContext';
 
 import {
   DialogClose,
+  Dialog
 } from "@/components/ui/dialog"
 
 export const AnimatedTestimonials = ({
@@ -144,11 +145,9 @@ export const AnimatedTestimonials = ({
               ))}
             </motion.p>
           </motion.div>
-          <DialogClose asChild>
-          <Link href="/chat" onClick={handleBotSelect} className="mt-5 mx-auto md:mx-0">
-          <RainbowButton>Select the Bot</RainbowButton>
-          </Link>
-          </DialogClose>
+            <Link href="/chat" onClick={handleBotSelect} className="mt-5 mx-auto md:mx-0">
+              <RainbowButton>Select the Bot</RainbowButton>
+            </Link>
           <div className="flex gap-4  pt-3 md:pt-0 mx-auto md:mx-0">
             <button
               onClick={handlePrev}

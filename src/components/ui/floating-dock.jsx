@@ -10,6 +10,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
+  DialogClose,
   DialogTrigger,
 } from "@/components/ui/dialog"
 
@@ -128,7 +129,7 @@ function IconContainer({
             <DialogDescription>
             </DialogDescription>
           </DialogHeader>
-          {component}
+            {component}
         </DialogContent>
       </Dialog>
     </Link>)
