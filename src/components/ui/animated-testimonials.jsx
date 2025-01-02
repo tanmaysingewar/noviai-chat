@@ -8,14 +8,12 @@ import { RainbowButton } from "./rainbow-button";
 import Link from "next/link";
 import { useBot } from '@/support/BotContext';
 
-import {
-  DialogClose,
-  Dialog
-} from "@/components/ui/dialog"
+// import { DialogClose } from "@/components/ui/dialog"; // Add this import if not already present
 
 export const AnimatedTestimonials = ({
   testimonials,
-  autoplay = false
+  autoplay = false,
+  onClose
 }) => {
   const { setSelectedBotId } = useBot();
   const [active, setActive] = useState(0);
@@ -117,7 +115,7 @@ export const AnimatedTestimonials = ({
             <h3 className="text-2xl font-bold dark:text-white text-black text-center md:text-left">
               {testimonials[active].name}
             </h3>
-            <p className="text-sm text-gray-500 dark:text-neutral-500  text-center md:text-left">
+            <p className="text-sm text-gray-500 dark:text-neutral-500  text-center md:text-left whitespace-pre-line">
               {testimonials[active].designation}
             </p>
             <motion.p className=" text-gray-500 mt-8 dark:text-neutral-300 text-xs md:text-lg hidden md:block">
@@ -145,10 +143,17 @@ export const AnimatedTestimonials = ({
               ))}
             </motion.p>
           </motion.div>
-            <Link href="/chat" onClick={handleBotSelect} className="mt-5 mx-auto md:mx-0">
-              <RainbowButton>Select the Bot</RainbowButton>
+            <Link
+              href="/chat"
+              onClick={() => {
+                handleBotSelect();
+                onClose?.();
+              }}
+              className="mt-5 mx-auto md:mx-0"
+            >
+              <RainbowButton>Start Chatting</RainbowButton>
             </Link>
-          <div className="flex gap-4  pt-3 md:pt-0 mx-auto md:mx-0">
+          <div className="flex gap-4  pt-3 md:pt-0 mx-auto md:mx-0 mt-5">
             <button
               onClick={handlePrev}
               className="h-7 w-7 rounded-full bg-gray-100  flex items-center justify-center group/button">

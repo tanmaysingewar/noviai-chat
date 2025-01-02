@@ -1,3 +1,5 @@
+
+import React from "react";
 import { cn } from "@/lib/utils";
 import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
@@ -56,6 +58,7 @@ function IconContainer({
   component,
 }) {
   let ref = useRef(null);
+  const [open, setOpen] = useState(false);
 
   let distance = useTransform(mouseX, (val) => {
     let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
@@ -96,7 +99,7 @@ function IconContainer({
 
   return (
     (<Link href={href}>
-      <Dialog>
+      <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger>
           <motion.div
             ref={ref}
@@ -129,7 +132,7 @@ function IconContainer({
             <DialogDescription>
             </DialogDescription>
           </DialogHeader>
-            {component}
+          {React.cloneElement(component, { onClose: () => setOpen(false) })}
         </DialogContent>
       </Dialog>
     </Link>)

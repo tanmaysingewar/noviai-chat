@@ -44,10 +44,10 @@ export default function Home() {
               <p className="font-light text-lg">Novi AI</p>
             </div>
             <div className="flex flex-row items-center justify-center gap-6">
-              <p>About</p>
+              {/* <p>About</p>
               <p>Features</p>
 
-              <p>Features</p>
+              <p>Features</p> */}
             </div>
             <div>
               <div className="flex flex-row items-center justify-center gap-6">
@@ -65,7 +65,8 @@ export default function Home() {
         </div>
         <div className="text-center mt-20">
           <HeaderLabel />
-          <p className="text-center text-5xl font-thin mt-20" >
+          <p className="font-light text mt-20">CultureVo presents to you</p>
+          <p className="text-center text-5xl font-thin mt-3" >
             NOVI AI
           </p>
 
@@ -75,12 +76,14 @@ export default function Home() {
             </p>
           </h1> */}
           <p className="text-center font-[300] mt-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br /> incididunt ut labore et dolore magna aliqua.
+            Your AI companion who understands you culturally and emotionally.  <br />
+            Always there for you, with all the care in the world!
+
           </p>
           {/* <TextGenerateEffect words={"NOVI AI"} className={"text-6xl font-thin mb-8 mt-10"} />
          <TextGenerateEffect className={"font-thin mb-8 mt-10 text-sm"} words={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."} /> */}
           <Link href="/signup">
-            <RainbowButton className="mt-10" >Get Started</RainbowButton>
+            <RainbowButton className="mt-10" >Start Chatting</RainbowButton>
           </Link>
         </div>
         <h2 className="text-3xl font-bold text-center mb-16 mt-32">

@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import { BotProvider } from '@/support/BotContext';
+import { UserProvider } from '@/support/UserContext';
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,16 +26,18 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
       >
-         <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <BotProvider>
-            {children}
-            </BotProvider>
-          </ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <BotProvider>
+            <UserProvider>
+              {children}
+            </UserProvider>
+          </BotProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

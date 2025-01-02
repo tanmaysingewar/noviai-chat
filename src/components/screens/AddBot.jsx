@@ -1,10 +1,10 @@
 import React from 'react'
 import { SelectBot } from '../SelectBot'
 
-function AddBot() {
+function AddBot({onClose}) {
   return (
    <div className='w-max'>
-    <SelectBot/>
+   <SelectBot onClose={onClose}/>
    </div>
   )
 }
