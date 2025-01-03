@@ -11,7 +11,8 @@ import Meteors from "@/components/ui/meteors";
 import Particles from "@/components/ui/particles";
 import { Vortex } from "@/components/ui/vortex";
 import Footer from "@/components/footer";
-
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { GlareCard } from "@/components/ui/glare-card";
 
 export default function Home() {
   return (
@@ -39,7 +40,7 @@ export default function Home() {
       />
       <main className="absolute top-0 left-0 w-full h-full pt-10 px-10 z-50">
         <div className="flex flex-col items-center justify-center gap-8 sm:flex-row max-w-6xl m-auto">
-          <div className="w-full flex flex-col items-center justify-between gap-8 sm:flex-row border border-solid bg-zinc-900 border-black dark:border-black p-2 px-10 rounded-full fixed max-w-6xl mt-4 z-50">
+          <div className="hidden w-full  flex-col items-center justify-between gap-8 sm:flex-row border border-solid bg-zinc-900 border-black dark:border-black p-2 px-10 rounded-full fixed max-w-6xl mt-4 z-50">
             <div>
               <p className="font-light text-lg">Novi AI</p>
             </div>
@@ -64,7 +65,9 @@ export default function Home() {
           </div>
         </div>
         <div className="text-center mt-20">
+          <Link href="/signup">
           <HeaderLabel />
+          </Link>
           <p className="font-light text mt-20">CultureVo presents to you</p>
           <p className="text-center text-5xl font-thin mt-3" >
             NOVI AI
@@ -75,30 +78,32 @@ export default function Home() {
               NOVI AI
             </p>
           </h1> */}
-          <p className="text-center font-[300] mt-5">
-            Your AI companion who understands you culturally and emotionally.  <br />
-            Always there for you, with all the care in the world!
 
-          </p>
+          <TextGenerateEffect words={"Your AI companion who understands you culturally and emotionally. \n Always there for you, with all the care in the world!"} className={"text-center font-[300] mt-5 text-sm "} />
+          {/* <p className="text-center text-sm font-[300] mt-5"></p> */}
           {/* <TextGenerateEffect words={"NOVI AI"} className={"text-6xl font-thin mb-8 mt-10"} />
          <TextGenerateEffect className={"font-thin mb-8 mt-10 text-sm"} words={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."} /> */}
           <Link href="/signup">
             <RainbowButton className="mt-10" >Start Chatting</RainbowButton>
           </Link>
         </div>
-        <h2 className="text-3xl font-bold text-center mb-16 mt-32">
-          Discover Our Solutions
-        </h2>
+        <h2 className="text-3xl font-bold text-center mb-16 mt-32">Your NOVI is</h2>
         <div className="flex flex-col items-center justify-center gap-8 sm:flex-row max-w-6xl m-auto">
-          <EvervaultCardDemo />
-          <EvervaultCardDemo />
-          <EvervaultCardDemo />
+          <GlareCardDemo text={"Culturally Intelligent"} />
+          <GlareCardDemo text={"Emotionally Intelligent"} />
+          <GlareCardDemo text={"Always there for you"} />
         </div>
-
         <Footer />
       </main>
-
-
     </div>
+  );
+}
+
+
+function GlareCardDemo({text}) {
+  return (
+    <GlareCard className="flex flex-col items-center justify-center">
+      <p className="text-white font-bold text-xl mt-4">{text}</p>
+    </GlareCard>
   );
 }
