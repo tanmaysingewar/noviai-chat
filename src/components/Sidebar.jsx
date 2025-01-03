@@ -528,7 +528,7 @@ const Dashboard = ({ traits, language }) => {
         body: JSON.stringify({
           question: input,
           // llm: "meta-llama/llama-3.1-70b-instruct",
-          // personality: fullPersonality,
+          personality: selectedBotId,
           personality_prompt: editablePrompts[selectedBotId],
           last_three_responses: getLastEightBotResponses(),
           conversationId: 1,
