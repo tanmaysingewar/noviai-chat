@@ -40,27 +40,11 @@ export default function Home() {
       />
       <main className="absolute top-0 left-0 w-full h-full pt-10 px-10 z-50">
         <div className="flex flex-col items-center justify-center gap-8 sm:flex-row max-w-6xl m-auto">
-          <div className="hidden w-full  flex-col items-center justify-between gap-8 sm:flex-row border border-solid bg-zinc-900 border-black dark:border-black p-2 px-10 rounded-full fixed max-w-6xl mt-4 z-50">
-            <div>
-              <p className="font-light text-lg">Novi AI</p>
+          <div className="flex w-full  flex-col items-center justify-between gap-8 sm:flex-row border border-solid bg-zinc-900 border-black dark:border-black p-2 px-10 rounded-full fixed max-w-6xl mt-4 z-50">
+            <div className="justify-center items-center">
+              <p className="font-light text-lg">CultureVo</p>
             </div>
-            <div className="flex flex-row items-center justify-center gap-6">
-              {/* <p>About</p>
-              <p>Features</p>
-
-              <p>Features</p> */}
-            </div>
-            <div>
-              <div className="flex flex-row items-center justify-center gap-6">
-                {/* //bg-purple-800 bg-opacity-50 */}
-                {/* <Link href="/login">
-                  <p className="text-white">Login</p>
-                </Link> */}
-                {/* <Link href="/signup">
-                  <ShinyButton className="bg-white text-white"><p className="text-black">Get Started</p></ShinyButton>
-                </Link> */}
-
-              </div>
+            <div className=" hidden md:flex flex-row items-center justify-center gap-6">
             </div>
           </div>
         </div>
@@ -89,9 +73,9 @@ export default function Home() {
         </div>
         <h2 className="text-3xl font-bold text-center mb-16 mt-32">Your NOVI is</h2>
         <div className="flex flex-col items-center justify-center gap-8 sm:flex-row max-w-6xl m-auto">
-          <GlareCardDemo text={"Culturally Intelligent"} />
-          <GlareCardDemo text={"Emotionally Intelligent"} />
-          <GlareCardDemo text={"Always there for you"} />
+          <GlareCardDemo text={"Culturally Intelligent"} quote={"Your Novi is culturally adept to the city they belong to. They know the city like a local- it's personality, offerings and challenges."} />
+          <GlareCardDemo text={"Emotionally Intelligent"} quote={"NOVI will understand you like no other. Discuss your life's dreams, hopes, fears and goals with them. They will care for you, for who you are!"} />
+          <GlareCardDemo text={"Always there for you"} quote={"Treat your NOVI as your constant source for emotional sustenance. They are always available for you, when the world might not be."} />
         </div>
         <Footer />
       </main>
@@ -100,10 +84,11 @@ export default function Home() {
 }
 
 
-function GlareCardDemo({text}) {
+function GlareCardDemo({text,quote}) {
   return (
     <GlareCard className="flex flex-col items-center justify-center">
       <p className="text-white font-bold text-xl mt-4">{text}</p>
+      <p className="text-white font-semibold text-xs mt-2 text-center px-5">{quote}</p>
     </GlareCard>
   );
 }

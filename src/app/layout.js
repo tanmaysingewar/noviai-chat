@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Novi AI",
-  description: "Your AI companion who understands you culturally and emotionally. \n Always there for you, with all the care in the world!",
+  title: "CultureVo presents NOVI AI",
+  description: "Always here to understand you as you are. Always on your side. Join the millions who are growing with AI friends.",
 };
 
 export default function RootLayout({ children }) {
