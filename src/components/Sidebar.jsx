@@ -164,7 +164,7 @@ export function SidebarDemo() {
                     <h3 className="text-2xl font-bold dark:text-white text-black mt-4">
                       {selectedBotDetails.name}
                     </h3>
-                    <p className="text-xs text-gray-500 dark:text-neutral-400 ">
+                    <p className="text-xs text-gray-500 dark:text-neutral-400 whitespace-pre-line">
                       {selectedBotDetails.designation}
                     </p>
                   </div>
