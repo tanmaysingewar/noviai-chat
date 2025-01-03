@@ -1,18 +1,21 @@
-import React from 'react'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import Image from 'next/image'
-import ShinyButton from '../ui/shiny-button'
+"use client";
+import React from 'react';
+import Image from 'next/image';
+import ShinyButton from '../ui/shiny-button';
+import { useRouter } from 'next/navigation';
 
 function Profile() {
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    localStorage.removeItem('userDetails');
+    // reload the page
+    window.location.reload();
+    // return await router.replace('/signup');
+  };
+
   return (
-    <div suppressHydrationWarning >
+    <div suppressHydrationWarning>
       <div className='flex flex-col items-center p-3 gap-4'>
         <div>
           <Image
@@ -28,11 +31,11 @@ function Profile() {
           <p className='text-xs'>jameskim@datapro.ai</p>
         </div>
       </div>
-      <p className='text-center text-sm underline'>
-       Log out
+      <p className='text-center text-sm underline cursor-pointer' onClick={handleLogout}>
+        Log out
       </p>
     </div>
-  )
+  );
 }
 
-export default Profile
+export default Profile;

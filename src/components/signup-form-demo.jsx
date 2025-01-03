@@ -30,7 +30,7 @@ export default function SignupFormDemo() {
     if (formData.get('name') && formData.get('email') && formData.get('gender')) {
       setUserDetails({
         name: formData.get('name'),
-        username: formData.get('email'), 
+        email: formData.get('email'), 
         gender: formData.get('gender')
       }); 
       router.push('/details');

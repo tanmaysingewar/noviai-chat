@@ -10,14 +10,14 @@ export function UserProvider({ children }) {
       const savedUser = localStorage.getItem('userDetails');
       return savedUser ? JSON.parse(savedUser) : {
         name: '',
-        username: '',
-        gender: ''
+        gender: '',
+        email : ''
       };
     }
     return {
       name: '',
-      username: '',
-      gender: ''
+      gender: '',
+      email : ''
     };
   });
 

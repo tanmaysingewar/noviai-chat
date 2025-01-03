@@ -90,7 +90,7 @@ export function SidebarDemo() {
     "Bubbly/Positive",
     "Curious",
     "Funny",
-    "Intellectual/Conversations",
+    "Intellectual Conversations",
     "Gentle/Quiet",
     "Introverted",
     "Open Minded",
@@ -230,7 +230,7 @@ export const Logo = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         className="font-medium text-black dark:text-white whitespace-pre">
-        Novi Labs
+         Novi AI
       </motion.span>
     </Link>)
   );
@@ -511,10 +511,10 @@ const Dashboard = ({ traits, language }) => {
         question: input,
         // llm: "meta-llama/llama-3.1-70b-instruct",
         // personality: fullPersonality,
-        personality_prompt: editablePrompts[selectedBotId],
+        // personality_prompt: editablePrompts[selectedBotId],
         last_three_responses: getLastEightBotResponses(),
         conversationId: 1,
-        // email: email  // Include email in the request
+        email: userDetails.email
       })
 
       console.log(editablePrompts[selectedBotId])
@@ -531,7 +531,7 @@ const Dashboard = ({ traits, language }) => {
           personality_prompt: editablePrompts[selectedBotId],
           last_three_responses: getLastEightBotResponses(),
           conversationId: 1,
-          // email: email  // Include email in the request
+          email: userDetails.email
         }),
       });
       const data = await response.json();
